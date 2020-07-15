@@ -1,18 +1,27 @@
 {
-  "name": "image-upload-cropper",
+  "name": "react-image-upload",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple images uploader for React",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "image",
+    "images",
     "upload",
-    "cropper"
+    "cropper",
+    "react",
+    "react image",
+    "react image cropper",
+    "react image upload"
   ],
   "author": "sonphamtung",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sonphamtung/react-image-uploader.git"
+  },
   "dependencies": {
     "bootstrap": "^4.5.0",
     "react": "^16.13.1",
