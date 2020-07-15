@@ -21,5 +21,3 @@ yarn add react-image-upload
 ```bash
 import ImageUpload from "react-image-upload"
 ```
-
-With yarn
