@@ -2,9 +2,6 @@ const path = require('path');
 
 module.exports = {
     entry: './index.ts',
-    output: {
-        filename: 'lib.js',
-    },
     externals: {
         react: 'React',
         'react-dom': 'ReactDOM',
@@ -53,7 +50,7 @@ module.exports = {
         extensions: ['.tsx', '.ts', '.js'],
     },
     output: {
-        filename: 'bundle.js',
+        filename: 'lib.js',
         path: path.resolve(__dirname, 'dist'),
     },
     mode: 'production',
