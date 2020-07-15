@@ -1,0 +1,31 @@
+{
+  "name": "image-upload-cropper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "image",
+    "upload",
+    "cropper"
+  ],
+  "author": "sonphamtung",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.5.0",
+    "react": "^16.13.1",
+    "react-cropper": "^1.3.0",
+    "react-dom": "^16.13.1",
+    "reactstrap": "^8.5.1"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.43",
+    "@types/react-cropper": "^1.3.0",
+    "@types/react-dom": "^16.9.8",
+    "@types/reactstrap": "^8.5.0",
+    "prettier": "^2.0.5",
+    "typescript": "^3.9.6"
+  }
+}
