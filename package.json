@@ -1,6 +1,6 @@
 {
   "name": "react-image-upload",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A simple images uploader for React",
   "main": "index.ts",
   "scripts": {
