@@ -15,3 +15,11 @@ With yarn
 ```bash
 yarn add react-image-upload
 ```
+
+## Usage
+
+```bash
+import ImageUpload from "react-image-upload"
+```
+
+With yarn

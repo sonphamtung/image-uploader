@@ -4,8 +4,6 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import IMAGE_PLACEHOLDER from './images/image-placeholder.svg';
 import ProgressBar from './ProgressBar';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 interface ImageUploadProps {
     imageUrl?: string | undefined;
     handleChangeImage?: (imageUrl: string) => any;
@@ -99,7 +97,7 @@ export default class ImageUpload extends React.Component<ImageUploadProps, State
         const { imageUrl } = this.state;
         return (
             <div>
-                <img src={imageUrl} />
+                {imageUrl ? <img src={imageUrl} /> : <IMAGE_PLACEHOLDER />}
                 <div className="upload-image-button">
                     <input
                         type="file"

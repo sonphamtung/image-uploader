@@ -1,10 +1,26 @@
 const path = require('path');
 
+const reactExternal = {
+    root: 'React',
+    commonjs2: 'react',
+    commonjs: 'react',
+    amd: 'react',
+};
+
+const reactDOMExternal = {
+    root: 'ReactDOM',
+    commonjs2: 'react-dom',
+    commonjs: 'react-dom',
+    amd: 'react-dom',
+};
+
 module.exports = {
-    entry: './index.ts',
+    entry: {
+        'react-image-upload': path.resolve(__dirname, './index.ts'),
+    },
     externals: {
-        react: 'React',
-        'react-dom': 'ReactDOM',
+        react: reactExternal,
+        'react-dom': reactDOMExternal,
     },
     module: {
         rules: [
@@ -25,24 +41,16 @@ module.exports = {
             },
             {
                 test: /\.svg$/,
-                loader: 'svg-inline-loader',
+                loader: '@svgr/webpack',
             },
             {
-              test: /\.css$/,
-              use: [ 'style-loader', 'css-loader' ]
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader'],
             },
             {
                 enforce: 'pre',
                 test: /\.js$/,
                 loader: 'source-map-loader',
-            },
-            {
-                test: /\.(png|jpe?g|gif|svg)$/i,
-                use: [
-                    {
-                        loader: 'file-loader',
-                    },
-                ],
             },
         ],
     },
@@ -50,8 +58,13 @@ module.exports = {
         extensions: ['.tsx', '.ts', '.js'],
     },
     output: {
-        filename: 'lib.js',
+        filename: 'react-image-upload.js',
+        globalObject: 'this',
+        libraryTarget: 'umd',
         path: path.resolve(__dirname, 'dist'),
+    },
+    optimization: {
+        minimize: true,
     },
     mode: 'production',
 };

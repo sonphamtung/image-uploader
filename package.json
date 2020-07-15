@@ -2,7 +2,7 @@
   "name": "react-image-upload",
   "version": "1.0.3",
   "description": "A simple images uploader for React",
-  "main": "index.ts",
+  "main": "dist/react-image-upload.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack"
@@ -25,7 +25,6 @@
   },
   "dependencies": {
     "@babel/preset-react": "^7.10.4",
-    "bootstrap": "^4.5.0",
     "react": "^16.13.1",
     "react-cropper": "^1.3.0",
     "react-dom": "^16.13.1",
@@ -34,6 +33,8 @@
   "devDependencies": {
     "@babel/core": "^7.10.5",
     "@babel/plugin-syntax-jsx": "^7.10.4",
+    "@svgr/webpack": "^5.4.0",
+    "@types/node": "^14.0.23",
     "@types/react": "^16.9.43",
     "@types/react-cropper": "^1.3.0",
     "@types/react-dom": "^16.9.8",
@@ -43,7 +44,6 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^3.6.0",
-    "file-loader": "^6.0.0",
     "path": "^0.12.7",
     "prettier": "^2.0.5",
     "source-map-loader": "^1.0.1",
