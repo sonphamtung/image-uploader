@@ -98,8 +98,8 @@ export default class ImageUpload extends React.Component<ImageUploadProps, State
     render() {
         const { imageUrl } = this.state;
         return (
-            <>
-                <img src={imageUrl || IMAGE_PLACEHOLDER} />
+            <div>
+                <img src={imageUrl} />
                 <div className="upload-image-button">
                     <input
                         type="file"
@@ -147,7 +147,7 @@ export default class ImageUpload extends React.Component<ImageUploadProps, State
                         </Button>
                     </ModalFooter>
                 </Modal>
-            </>
+            </div>
         );
     }
 }

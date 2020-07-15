@@ -4,7 +4,6 @@
         "allowJs": true,
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
-        "noEmit": true,
         "module": "esnext",
         "outDir": "lib",
         "isolatedModules": true,
