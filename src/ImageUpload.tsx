@@ -26,6 +26,7 @@ export default class ImageUpload extends React.Component<ImageUploadProps, State
         this.cropAndUpload = this.cropAndUpload.bind(this);
         this.closeCropModal = this.closeCropModal.bind(this);
     }
+
     cropper: Cropper | null = null;
 
     componentDidMount() {
@@ -96,7 +97,7 @@ export default class ImageUpload extends React.Component<ImageUploadProps, State
     render() {
         const { imageUrl } = this.state;
         return (
-            <div>
+            <>
                 {imageUrl ? <img src={imageUrl} /> : <IMAGE_PLACEHOLDER />}
                 <div className="upload-image-button">
                     <input
@@ -145,7 +146,7 @@ export default class ImageUpload extends React.Component<ImageUploadProps, State
                         </Button>
                     </ModalFooter>
                 </Modal>
-            </div>
+            </>
         );
     }
 }
