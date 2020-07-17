@@ -1,4 +1,5 @@
 # react-image-upload
+[![npm version](https://badge.fury.io/js/react-image-upload.svg)](https://badge.fury.io/js/react-image-upload)
 
 A simple images uploader for React.
 
