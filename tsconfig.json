@@ -18,7 +18,10 @@
         "pretty": true,
         "resolveJsonModule": true,
         "sourceMap": true,
-        "target": "es5"
+        "target": "es5",
+        "rootDirs": ["src", "stories"],
+        "baseUrl": "src",
+        "emitDecoratorMetadata": true
     },
-    "exclude": ["node_modules"]
+    "exclude": ["node_modules", "dist"]
 }

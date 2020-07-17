@@ -15,9 +15,7 @@ const reactDOMExternal = {
 };
 
 module.exports = {
-    entry: {
-        'react-image-upload': path.resolve(__dirname, './index.ts'),
-    },
+    entry: "./index.ts",
     externals: {
         react: reactExternal,
         'react-dom': reactDOMExternal,
@@ -52,13 +50,28 @@ module.exports = {
                 test: /\.js$/,
                 loader: 'source-map-loader',
             },
+            {
+              test: /\.scss$/,
+              use: [
+                  require.resolve('style-loader'),
+                  {
+                      loader: 'css-loader',
+                      options: {
+                          importLoaders: 1,
+                      },
+                  },
+                  {
+                      loader: 'sass-loader',
+                  },
+              ],
+          }
         ],
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
     },
     output: {
-        filename: 'react-image-upload.js',
+        filename: 'main.js',
         globalObject: 'this',
         libraryTarget: 'umd',
         path: path.resolve(__dirname, 'dist'),
