@@ -1,4 +1,6 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const postcssPresetEnv = require('postcss-preset-env');
 
 const reactExternal = {
     root: 'React',
@@ -15,7 +17,10 @@ const reactDOMExternal = {
 };
 
 module.exports = {
-    entry: "./index.ts",
+    entry: [
+      './index.ts',
+      './src/ImageUpload.scss'
+    ],
     externals: {
         react: reactExternal,
         'react-dom': reactDOMExternal,
@@ -51,20 +56,34 @@ module.exports = {
                 loader: 'source-map-loader',
             },
             {
-              test: /\.scss$/,
-              use: [
-                  require.resolve('style-loader'),
-                  {
-                      loader: 'css-loader',
-                      options: {
-                          importLoaders: 1,
-                      },
-                  },
-                  {
-                      loader: 'sass-loader',
-                  },
-              ],
-          }
+                test: /\.scss$/,
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 2,
+                        },
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            ident: 'postcss',
+                            plugins: () => [
+                                postcssPresetEnv({
+                                    browsers: ['>1%'],
+                                }),
+                                require('cssnano')(),
+                            ],
+                        },
+                    },
+                    {
+                        loader: 'sass-loader',
+                    },
+                ],
+            },
         ],
     },
     resolve: {
@@ -80,4 +99,9 @@ module.exports = {
         minimize: true,
     },
     mode: 'production',
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: 'main.css',
+        }),
+    ],
 };

@@ -27,8 +27,6 @@ interface State {
     isUploading: boolean;
 }
 
-const reader = new FileReader();
-
 export default class ImageUpload extends React.Component<ImageUploadProps, State> {
     constructor(props: ImageUploadProps) {
         super(props);
@@ -74,6 +72,7 @@ export default class ImageUpload extends React.Component<ImageUploadProps, State
         formData.append('file', blob as string | Blob);
 
         // Get image uploaded to preview
+        const reader = new FileReader();
         reader.readAsDataURL(blob as Blob);
         reader.onloadend = () => {
             this.setState({
@@ -122,7 +121,7 @@ export default class ImageUpload extends React.Component<ImageUploadProps, State
             imageUrl: undefined,
         });
         this.props.onRemoved && this.props.onRemoved(this.state.imageUrl as string);
-    }
+    };
 
     render() {
         const { imageUrl, newImage, isUploading } = this.state;
