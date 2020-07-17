@@ -3,4 +3,7 @@ webpack.*
 tsconfig.json
 index.ts
 .prettierrc
-.github
+/.github
+/node_modules
+/.storybook
+/stories
