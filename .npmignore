@@ -3,3 +3,4 @@ webpack.*
 tsconfig.json
 index.ts
 .prettierrc
+.github
