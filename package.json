@@ -1,6 +1,6 @@
 {
   "name": "react-images-crop-uploader",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A simple images uploader for React",
   "main": "dist/main.js",
   "scripts": {
