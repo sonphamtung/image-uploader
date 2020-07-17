@@ -1,5 +1,5 @@
-# react-image-upload
-[![npm version](https://badge.fury.io/js/react-image-upload.svg)](https://badge.fury.io/js/react-image-upload)
+# react-images-crop-uploader
+[![npm version](https://badge.fury.io/js/react-images-crop-uploader.svg)](https://badge.fury.io/js/react-images-crop-uploader)
 
 A simple images uploader for React.
 
@@ -8,17 +8,17 @@ A simple images uploader for React.
 With npm
 
 ```bash
-npm install --save react-image-upload
+npm install --save react-images-crop-uploader
 ```
 
 With yarn
 
 ```bash
-yarn add react-image-upload
+yarn add react-images-crop-uploader
 ```
 
 ## Usage
 
 ```bash
-import ImageUpload from "react-image-upload"
+import ImageUpload from "react-images-crop-uploader"
 ```
