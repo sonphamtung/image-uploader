@@ -19,7 +19,6 @@ const reactDOMExternal = {
 module.exports = {
     entry: [
       './index.ts',
-      './src/ImageUpload.scss'
     ],
     externals: {
         react: reactExternal,
