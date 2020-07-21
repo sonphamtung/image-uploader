@@ -9,16 +9,15 @@ import './ImageUpload.scss';
 export interface ImageUploadProps {
     className?: string;
     imageUrl?: string | undefined;
-
-    // Element Props
     children: React.ReactNode;
-    removeImage?: ReactElement | any;
+    removeElement?: ReactElement | any;
     imagePlaceholder?: React.ReactNode;
 
     // Action props
     onImageUploaded?: (imageUrl: string) => void;
-    upload?: (formData: FormData) => { imageUrl: string };
+    upload?: (formData: FormData) => Promise<{ url: string }>;
     onRemoved?: (imageUrl: string) => void;
+    onUploadError?: (e: Error) => void;
 }
 
 interface State {
@@ -81,20 +80,16 @@ export default class ImageUpload extends React.Component<ImageUploadProps, State
         };
         if (this.props.upload) {
             try {
-                const { imageUrl } = await this.props.upload(formData);
-                this.setState({
-                    newImage: null,
-                });
-
-                this.props.onImageUploaded && this.props.onImageUploaded(imageUrl);
+                const { url } = await this.props.upload(formData);
+                this.props.onImageUploaded && this.props.onImageUploaded(url);
             } catch (e) {
-                console.log(e);
-            } finally {
-                this.setState({
-                    isUploading: false,
-                });
+                this.props.onUploadError && this.props.onUploadError(e);
             }
         }
+        this.setState({
+            isUploading: false,
+            newImage: null,
+        });
     }
 
     closeCropModal() {
@@ -125,7 +120,7 @@ export default class ImageUpload extends React.Component<ImageUploadProps, State
 
     render() {
         const { imageUrl, newImage, isUploading } = this.state;
-        const { className, children, removeImage, imagePlaceholder } = this.props;
+        const { className, children, removeElement, imagePlaceholder } = this.props;
         return (
             <div className={className}>
                 {imageUrl ? <img className="image-preview" src={imageUrl} /> : imagePlaceholder || <ImagePlaceholder />}
@@ -138,8 +133,8 @@ export default class ImageUpload extends React.Component<ImageUploadProps, State
                     />
                     {children}
                 </div>
-                {removeImage &&
-                    cloneElement(removeImage, {
+                {removeElement &&
+                    cloneElement(removeElement, {
                         onClick: this.handleRemoveImage,
                     })}
 
@@ -148,14 +143,13 @@ export default class ImageUpload extends React.Component<ImageUploadProps, State
                     <ModalBody>
                         <Cropper
                             ref={(cropper) => (this.cropper = cropper)}
-                            // @ts-ignore
-                            src={newImage}
+                            src={newImage as string}
                             style={{ height: 400, width: '100%' }}
                             // Cropper.js options
                             toggleDragModeOnDblclick={false}
                             viewMode={1}
                             aspectRatio={1}
-                            zoomable={false}
+                            zoomable={true}
                             autoCropArea={1}
                             guides={false}
                         />
